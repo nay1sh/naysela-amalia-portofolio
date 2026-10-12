@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Masa Depan - Naysela Amalia, S.Kom.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-green: #2d6a4f;
+            --light-green: #52b788;
+            --accent-yellow: #f39c12;
+            --soft-yellow: #fefae0;
+            --terracotta: #8d493a;
+            --dark-brown: #3d2314;
+            --card-bg: #ffffff;
+            --text-main: #2b2b2b;
+            --text-muted: #666666;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f4f6f8;
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* Container & Layout Structure */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 25px auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Header / Banner Styling */
+        .header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, #1b4332 100%);
+            color: white;
+            position: relative;
+            padding: 40px 30px;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(243, 156, 18, 0.15);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-text {
+            max-width: 60%;
+        }
+
+        .header-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: #ffeaa7;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .header-text h2 {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #d8f3dc;
+            margin-bottom: 15px;
+        }
+
+        .header-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .badge i {
+            color: var(--accent-yellow);
+        }
+
+        a.badge:hover {
+            background: var(--accent-yellow);
+            color: var(--dark-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        a.badge:hover i {
+            color: var(--dark-brown);
+        }
+
+        /* --- STYLING 4 FOTO KANVAS ACAK & TUMPANG TINDIH (ESTETIK) --- */
+        .avatar-group {
+            position: relative;
+            width: 280px;
+            height: 180px;
+            margin-right: 10px;
+        }
+
+        .avatar-item {
+            position: absolute;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            transition: all 0.4s ease;
+        }
+
+        .avatar-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .avatar-item:hover {
+            transform: scale(1.1) rotate(0deg) !important;
+            z-index: 10 !important;
+            box-shadow: 0 12px 25px rgba(243, 156, 18, 0.5);
+            border-color: var(--accent-yellow);
+        }
+
+        /* Foto Utama (Kiri Atas - Paling Besar) */
+        .avatar-main {
+            width: 115px;
+            height: 115px;
+            top: 10px;
+            left: 10px;
+            z-index: 4;
+            border-color: var(--accent-yellow);
+            transform: rotate(-3deg);
+        }
+
+        /* Foto 2 (Kanan Atas - Agak Naik) */
+        .avatar-sub1 {
+            width: 95px;
+            height: 95px;
+            top: -10px;
+            left: 110px;
+            z-index: 2;
+            transform: rotate(5deg);
+        }
+
+        /* Foto 3 (Bawah Tengah - Tumpang Tindih) */
+        .avatar-sub2 {
+            width: 85px;
+            height: 85px;
+            top: 85px;
+            left: 90px;
+            z-index: 3;
+            transform: rotate(-4deg);
+        }
+
+        /* Foto 4 (Kanan Bawah - Paling Kecil) */
+        .avatar-sub3 {
+            width: 70px;
+            height: 70px;
+            top: 60px;
+            left: 185px;
+            z-index: 1;
+            transform: rotate(8deg);
+        }
+
+        /* Body Area Layout */
+        .bodyarea {
+            display: flex;
+            min-height: 650px;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            background-color: #fef9e7;
+            width: 28%;
+            padding: 25px 15px;
+            border-right: 2px dashed #f1c40f;
+        }
+
+        .sidebar h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--terracotta);
+            margin-bottom: 15px;
+            padding-left: 10px;
+            font-weight: 700;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 18px;
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sidebar a i {
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--terracotta);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background-color: var(--terracotta);
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(141, 73, 58, 0.3);
+            transform: translateX(5px);
+        }
+
+        .sidebar a:hover i,
+        .sidebar a.active i {
+            color: var(--accent-yellow);
+        }
+
+        /* Content Area */
+        .content {
+            background-color: #ffffff;
+            color: var(--text-main);
+            width: 72%;
+            padding: 35px 40px;
+            overflow-y: auto;
+        }
+
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--terracotta);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent-yellow);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profile-story {
+            background: #fffdf9;
+            border-left: 4px solid var(--terracotta);
+            padding: 25px;
+            border-radius: 0 15px 15px 0;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 25px;
+        }
+
+        .profile-story p {
+            margin-bottom: 18px;
+            font-size: 1rem;
+            text-align: justify;
+            color: #333333;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef3d6, #fde3a7);
+            padding: 20px;
+            border-radius: 12px;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--dark-brown);
+            border-left: 5px solid var(--accent-yellow);
+            margin-top: 20px;
+        }
+
+        /* Timeline Card Styling */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            margin-top: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 3px;
+            background: var(--light-green);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-yellow);
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 3px var(--light-green);
+        }
+
+        .timeline-card {
+            background: #fdfdfd;
+            border: 1px solid #eef2f5;
+            padding: 18px 22px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+            border-color: var(--light-green);
+        }
+
+        .timeline-year {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dark-brown);
+            margin-bottom: 6px;
+        }
+
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .highlight-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        /* Milestones Grid */
+        .milestone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .milestone-card {
+            background: linear-gradient(135deg, #ffffff, #fcfcfc);
+            border: 1px solid #e0e0e0;
+            border-top: 4px solid var(--terracotta);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .milestone-card i {
+            font-size: 2.2rem;
+            color: var(--accent-yellow);
+            margin-bottom: 12px;
+        }
+
+        .milestone-card h4 {
+            font-size: 1.1rem;
+            color: var(--dark-brown);
+            margin-bottom: 8px;
+        }
+
+        .milestone-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer Styling */
+        .footer {
+            background: linear-gradient(135deg, var(--terracotta) 0%, #6d3326 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 22px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .footer span {
+            color: #ffeaa7;
+            text-shadow: 0 0 10px rgba(255, 234, 167, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container {
+                width: 95%;
+                margin: 10px auto;
+            }
+
+            .bodyarea {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 2px dashed #f1c40f;
+            }
+
+            .sidebar ul {
+                display: flex;
+                overflow-x: auto;
+                gap: 8px;
+                padding-bottom: 10px;
+            }
+
+            .sidebar li {
+                white-space: nowrap;
+                margin-bottom: 0;
+            }
+
+            .content {
+                width: 100%;
+                padding: 25px 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-text {
+                max-width: 100%;
+            }
+
+            .header-badges {
+                justify-content: center;
+            }
+
+            .avatar-group {
+                margin: 20px auto 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header Area -->
+    <div class="header">
+        <div class="header-content">
+            <div class="header-text">
+                <h1>Naysela Amalia, S.Kom.</h1>
+                <h2>Global Tech & Cross-Border Marketing Specialist in Tokyo, Japan</h2>
+                <div class="header-badges">
+                    <span class="badge"><i class="fa-solid fa-cake-candles"></i> 21 Ags 2007</span>
+                    <span class="badge"><i class="fa-solid fa-location-dot"></i> Tokyo, Japan</span>
+                    
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/6282387597144" target="_blank" class="badge">
+                        <i class="fa-brands fa-whatsapp"></i> +62 823-8759-7144
+                    </a>
+                    
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/nay1sh" target="_blank" class="badge">
+                        <i class="fa-brands fa-instagram"></i> @nay1sh
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 4 Foto Lingkaran Banner Acak & Tumpang Tindih -->
+            <div class="avatar-group">
+                <div class="avatar-item avatar-main">
+                    <img src="Naysela 1.jpeg" alt="Naysela Utama" onerror="this.src='https://placehold.co/150x150/2d6a4f/ffffff?text=Naysela'">
+                </div>
+                <div class="avatar-item avatar-sub1">
+                    <img src="naysela 2.jpeg" alt="Foto 2" onerror="this.src='https://placehold.co/100x100/52b788/ffffff?text=Foto2'">
+                </div>
+                <div class="avatar-item avatar-sub2">
+                    <img src="naysela 3.jpeg" alt="Foto 3" onerror="this.src='https://placehold.co/100x100/f39c12/ffffff?text=Foto3'">
+                </div>
+                <div class="avatar-item avatar-sub3">
+                    <img src="naysela 4.jpeg" alt="Foto 4" onerror="this.src='https://placehold.co/100x100/8d493a/ffffff?text=Foto4'">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="bodyarea">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <h3>Navigasi Portofolio</h3>
+            <ul>
+                <li><a onclick="switchTab('profil')" id="btn-profil" class="active"><i class="fa-solid fa-user-astronaut"></i> Profil</a></li>
+                <li><a onclick="switchTab('pendidikan')" id="btn-pendidikan"><i class="fa-solid fa-graduation-cap"></i> Riwayat Pendidikan</a></li>
+                <li><a onclick="switchTab('organisasi')" id="btn-organisasi"><i class="fa-solid fa-users-gear"></i> Organisasi & Volunteer</a></li>
+                <li><a onclick="switchTab('pekerjaan')" id="btn-pekerjaan"><i class="fa-solid fa-briefcase"></i> Riwayat Pekerjaan</a></li>
+                <li><a onclick="switchTab('milestones')" id="btn-milestones"><i class="fa-solid fa-trophy"></i> Key Milestones</a></li>
+            </ul>
+        </div>
+        
+        <!-- Content Area with Tabs -->
+        <div class="content">
+            
+            <div id="profil" class="tab-pane active">
+                <h2 class="section-title"><i class="fa-solid fa-id-card"></i> Tentang Saya</h2>
+                <div class="profile-story">
+                    <p><strong>Salam hangat! Saya Naysela Amalia, S.Kom.</strong></p>
+                    <p>Lahir di Kerinci pada 21 Agustus 2007, lembar hidup saya tidak pernah dicetak di atas karpet merah. Sejak kecil, takdir menguji mental saya lewat hantaman telak: kehilangan sosok Ayah tercinta, harus berjuang mati-matian bangkit dari fase jatuh sakit yang menguras fisik dan mental, hingga merantau dan menumpang di rumah Tante demi menempuh pendidikan di bangku SMK. Di saat seusia saya mungkin hanya memikirkan cara bersenang-senang, hari-hari saya ditempa oleh kesunyian perantauan, air mata rindu pada Ibu, dan tekad baja untuk tidak menyerah pada garis tangan.</p>
+                    <p>Tapi, badai tidak pernah datang untuk menghancurkan, ia datang untuk membentuk.</p>
+                    <p>Dari bilik-bilik kamar perantauan itu, saya membuktikan bahwa keterbatasan adalah bahan bakar terbaik. Konsisten berada di jajaran <strong>3 Besar / Bintang Pelajar</strong> sejak SD hingga SMK, menyabet <strong>Juara 1 KSN IPS Kabupaten</strong>, hingga meracik karya <strong>Film Pendek Edukasi</strong> yang diabadikan oleh Dinas Pendidikan Kabupaten, hanyalah permulaan. Haus akan tantangan era digital, saya melangkah ke bangku kuliah dan sukses menyandang gelar <strong>Sarjana Komputer (S.Kom.)</strong> tepat waktu dalam 3,5 tahun dengan predikat <em>Cumlaude</em>, sembari aktif mendedikasikan diri di organisasi kampus, gerakan mahasiswa, <strong>Lestravida</strong>, hingga mengemban misi kemanusiaan global bersama <strong>UNICEF</strong>.</p>
+                    <p>Keberanian saya juga ditempa dari kebiasaan belajar secara otodidak. Tanpa kursus mahal, saya mengasah kemampuan Bahasa Inggris sendiri secara konsisten dari hari ke hari—hingga tanpa disadari, bahasa internasional tersebut sudah terucap dengan sangat lancar dan alami ketika saya berhadapan dengan rekan kerja lintas negara.</p>
+                    <p>Dan puncaknya? Saya akhirnya mewujudkan mimpi terbesar yang selalu saya genggam sejak lama: menyeberangi lautan menuju Negeri Sakura. Di usianya yang masih sangat muda, Naysela Amalia yang dulu sempat diuji dengan keterbatasan kini berdiri tegak di Tokyo, Jepang, sebagai seorang <strong>International Business & Cross-Cultural Marketing Professional</strong>. Menguasai Bahasa Jepang dan fasih berbahasa Inggris secara otodidak menjadi senjata utama saya dalam menaklukkan iklim kerja global.</p>
+                    <p>Bagi saya, kesuksesan sejati bukan tentang seberapa megah jabatan atau seberapa banyak mata uang asing yang saya pegang sebelum menikah. Kesuksesan tertinggi saya terjadi pada detik ketika saya mampu berdiri di hadapan Ibu tercinta, memeluknya erat-erat, dan mempersembahkan rumah impian dari hasil keringat sendiri—sebuah pelunasan tuntas atas segala air mata dan pengorbanan beliau sebagai <em>single parent</em>.</p>
+                    <p>Ini bukan sekadar cerita tentang perjalanan karier atau merantau ke luar negeri. Ini adalah kisah tentang seorang perempuan yang menolak tunduk pada keadaan, mengubah luka menjadi mahkota, dan siap membuka jalan bagi perempuan-perempuan hebat lainnya untuk berani bermimpi tanpa batas.</p>
+                    
+                    <div class="quote-box">
+                        <i class="fa-solid fa-quote-left"></i> "You will be what you think about." <br>
+                        <small><em>(Dan saya memilih untuk berpikir bahwa saya adalah perempuan tak terhentikan.)</em></small>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pendidikan" class="tab-pane">
+                <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Riwayat Pendidikan & Prestasi</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2012 – 2018</div>
+                            <div class="timeline-title">SD Negeri 70 / III Sungai Bendung Air</div>
+                            <div class="timeline-desc">Konsisten mempertahankan posisi <strong>Top 3 Paralel / Juara Kelas</strong> dari kelas 1 hingga kelas 6.</div>
+                            <span class="highlight-tag">Bintang Pelajar SD</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2018 – 2021</div>
+                            <div class="timeline-title">SMP Negeri 10 Kerinci</div>
+                            <div class="timeline-desc">
+                                <ul>
+                                    <li>Konsisten masuk peringkat <strong>3 Besar Paralel</strong>.</li>
+                                    <li><strong>Juara 1 KSN IPS Kabupaten:</strong> Mewakili sekolah dan berhasil meraih kejuaraan sains tingkat kabupaten.</li>
+                                    <li><strong>Juara Lomba Film Pendek Edukasi Kabupaten:</strong> Karya sinematografi yang diresmikan Dinas Pendidikan untuk diputar sebagai media pembelajaran edukatif.</li>
+                                </ul>
+                            </div>
+                            <span class="highlight-tag">Juara KSN IPS & Creator Film Edukasi</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2021 – 2024</div>
+                            <div class="timeline-title">SMK Negeri 7 Muaro Jambi</div>
+                            <div class="timeline-desc">Merantau dan tinggal di rumah Tante. Mempertahankan predikat <strong>3 Besar / Bintang Pelajar</strong> di jurusan serta bangkit menuntaskan pendidikan vokasi di tengah keterbatasan.</div>
+                            <span class="highlight-tag">Top 3 Rank & Pelajar Mandiri</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2025 – 2028</div>
+                            <div class="timeline-title">S1 Sistem Informasi (S.Kom.)</div>
+                            <div class="timeline-desc">Lulus tepat waktu dalam waktu <strong>3.5 Tahun</strong> dengan predikat <strong>Cumlaude</strong>, aktif di keorganisasian kampus dan kepemimpinan mahasiswa.</div>
+                            <span class="highlight-tag">Gelar S.Kom. Cumlaude</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2028 – 2029</div>
+                            <div class="timeline-title">Nihongo Professional Academy Tokyo</div>
+                            <div class="timeline-desc">Program pelatihan intensif Bahasa Jepang profesional (JLPT N2/N1) serta etika bisnis & budaya kerja di Jepang.</div>
+                            <span class="highlight-tag">Japan Immersion Program</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="organisasi" class="tab-pane">
+                <h2 class="section-title"><i class="fa-solid fa-users-gear"></i> Organisasi & Volunteer</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2023 – 2024</div>
+                            <div class="timeline-title">Pelajar Penggerak Angkatan 1 & Pengurus OSIS</div>
+                            <div class="timeline-desc">Inisiator kegiatan kepemimpinan siswa di SMK dan mengelola kolaborasi antar divisi kesiswaan.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2025 – 2027</div>
+                            <div class="timeline-title">Anggota PMII</div>
+                            <div class="timeline-desc">Aktif dalam gerakan diskusi kritis, aksi sosial, serta kaderisasi kepemimpinan mahasiswa.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2027</div>
+                            <div class="timeline-title">Sekretaris Umum Himpunan Mahasiswa Program Studi Sistem Informasi (HMPSSI)</div>
+                            <div class="timeline-desc">Memimpin tata kelola administrasi internal dan koordinasi program kerja hingga purna tugas (Demisioner).</div>
+                            <span class="highlight-tag">Demisioner Sekretaris HMPSSI</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2027</div>
+                            <div class="timeline-title">Youth Volunteer – Lestravida</div>
+                            <div class="timeline-desc">Berpartisipasi dalam program pengabdian masyarakat, aksi sosial keberlanjutan, dan pemberdayaan pemuda.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2028 – 2029</div>
+                            <div class="timeline-title">Head of Public Relations – Komunitas Pemuda Indonesia–Jepang (KIPJ)</div>
+                            <div class="timeline-desc">Membangun jejaring antar-pelajar dan calon profesional muda Indonesia yang bersiap meniti karir ke Jepang.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2029 – 2030</div>
+                            <div class="timeline-title">UNICEF Global Youth Advocate / Volunteer</div>
+                            <div class="timeline-desc">Berkontribusi dalam kampanye kemanusiaan global UNICEF, berfokus pada hak pendidikan anak dan pemberdayaan perempuan muda secara internasional.</div>
+                            <span class="highlight-tag">UNICEF International Volunteer</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2030 – Sekarang</div>
+                            <div class="timeline-title">Pengurus Inti PPI Jepang & Diaspora Women Leaders</div>
+                            <div class="timeline-desc">Mentoring dan mendampingi perempuan muda Indonesia untuk beradaptasi, berkarir, serta mandiri secara finansial di Jepang.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pekerjaan" class="tab-pane">
+                <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Riwayat Pekerjaan & Karir</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2026</div>
+                            <div class="timeline-title">Japan Career & Digital Marketing Specialist</div>
+                            <div class="timeline-desc"><strong>Sakura Bridge Global / Indonesia-Japan Career Center</strong><br>Merancang strategi pemasaran digital dan konsultasi penempatan kerja bagi calon profesional yang ingin berkarier di Jepang.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2029 – 2030</div>
+                            <div class="timeline-title">Cross-Cultural Marketing & Client Relations Specialist</div>
+                            <div class="timeline-desc"><strong>Mori Cross-Border Media Co., Ltd. (Tokyo, Jepang)</strong><br>Mengelola komunikasi bisnis internasional, kerja sama klien global, dan adaptasi strategi pemasaran berbasis budaya lokal Jepang.</div>
+                            <span class="highlight-tag">First Career in Tokyo</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="timeline-year">2030 – Sekarang</div>
+                            <div class="timeline-title">International Business Development & Operations Manager</div>
+                            <div class="timeline-desc"><strong>Rakuten Group / CyberAgent Inc. (Tokyo, Jepang)</strong><br>Berpindah ke bidang baru untuk memperluas portofolio kepemimpinan. Bertanggung jawab atas ekspansi operasional dan strategi pertumbuhan bisnis global di Jepang.</div>
+                            <span class="highlight-tag">Managerial Position in Japan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="milestones" class="tab-pane">
+                <h2 class="section-title"><i class="fa-solid fa-trophy"></i> Key Milestones (Pencapaian Utama)</h2>
+                <div class="milestone-grid">
+                    <div class="milestone-card">
+                        <i class="fa-solid fa-house-chimney-heart"></i>
+                        <h4>Bakti untuk Ibu (2030)</h4>
+                        <p>Mempersembahkan rumah impian untuk Ibu tercinta dari hasil keringat sendiri di Jepang sebagai wujud bakti tuntas.</p>
+                    </div>
+                    <div class="milestone-card">
+                        <i class="fa-solid fa-microphone-lines"></i>
+                        <h4>Pembicara Internasional</h4>
+                        <p>Aktif mengisi 15+ seminar/webinar bertema <em>Women Empowerment</em>, Karir Jepang, dan Kemandirian Finansial.</p>
+                    </div>
+                    <div class="milestone-card">
+                        <i class="fa-solid fa-plane-departure"></i>
+                        <h4>Solo World Explorer</h4>
+                        <p>Menjelajahi 12 Prefektur di Jepang & 5 Negara di Asia Pasifik secara mandiri sebagai wanita independen.</p>
+                    </div>
+                    <div class="milestone-card">
+                        <i class="fa-solid fa-language"></i>
+                        <h4>Trilingual & JLPT N1</h4>
+                        <p>Lulus kualifikasi bahasa Jepang profesional tertinggi (JLPT N1) dan fasih Bahasa Inggris secara otodidak.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <!-- Footer Area -->
+    <div class="footer">
+         <span>You will be what you think about</span> 
+    </div>
+</div>
+
+<script>
+    function switchTab(tabId) {
+        // Hide all tab content panes
+        const panes = document.querySelectorAll('.tab-pane');
+        panes.forEach(pane => pane.classList.remove('active'));
+
+        // Remove active class from all navigation buttons
+        const buttons = document.querySelectorAll('.sidebar a');
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        // Show the selected tab content pane
+        const activePane = document.getElementById(tabId);
+        if (activePane) {
+            activePane.classList.add('active');
+        }
+
+        // Add active class to clicked button
+        const activeBtn = document.getElementById('btn-' + tabId);
+        if (activeBtn) {
+            activeBtn.classList.add('active');
+        }
+    }
+</script>
+
+</body>
+</html>
